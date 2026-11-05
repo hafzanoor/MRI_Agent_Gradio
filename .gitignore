@@ -3,3 +3,4 @@ __pycache__/
 .streamlit/
 .env
 secrets.toml
+push_to_github.bat
