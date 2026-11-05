@@ -3,13 +3,14 @@ import cv2
 from PIL import Image
 from torchcam.methods import GradCAM
 
-from tools.classifier_tool import load_inference_model, inference_transforms, IMG_SIZE
+from tools.classifier_tool import load_inference_model, inference_transforms, IMG_SIZE, prepare_image
 
 def generate_gradcam(pil_image: Image.Image) -> Image.Image:
     model, _ = load_inference_model()
-    image_tensor = inference_transforms(pil_image.convert("RGB")).unsqueeze(0)
+    prepared = prepare_image(pil_image)
+    image_tensor = inference_transforms(prepared).unsqueeze(0)
 
-    original_image = pil_image.convert("RGB").resize((IMG_SIZE, IMG_SIZE))
+    original_image = prepared.resize((IMG_SIZE, IMG_SIZE))
     original_array = np.array(original_image)
 
     cam_extractor = GradCAM(model, target_layer="features.18")

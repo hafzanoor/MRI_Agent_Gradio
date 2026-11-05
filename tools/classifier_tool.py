@@ -25,6 +25,24 @@ inference_transforms = transforms.Compose([
     normalization
 ])
 
+def prepare_image(pil_image: Image.Image) -> Image.Image:
+    """Convert to RGB and trim light (white/grey) borders, e.g. a frame around a scanned or
+    screenshotted MRI. Images with normal dark backgrounds are returned unchanged."""
+    img = pil_image.convert("RGB")
+    gray = np.asarray(img.convert("L"))
+    h, w = gray.shape
+    rows = np.where((gray < 225).mean(axis=1) > 0.02)[0]
+    cols = np.where((gray < 225).mean(axis=0) > 0.02)[0]
+    if len(rows) == 0 or len(cols) == 0:
+        return img
+    top, bottom, left, right = rows[0], rows[-1] + 1, cols[0], cols[-1] + 1
+    if (bottom - top) < 0.3 * h or (right - left) < 0.3 * w:
+        return img
+    if top == 0 and left == 0 and bottom == h and right == w:
+        return img
+    return img.crop((int(left), int(top), int(right), int(bottom)))
+
+
 def load_inference_model():
     global _model, _class_names
     if _model is not None:
@@ -49,7 +67,7 @@ def load_inference_model():
 
 def predict_mri(pil_image: Image.Image) -> dict:
     model, class_names = load_inference_model()
-    image_tensor = inference_transforms(pil_image.convert("RGB")).unsqueeze(0)
+    image_tensor = inference_transforms(prepare_image(pil_image)).unsqueeze(0)
 
     with torch.inference_mode():
         outputs = model(image_tensor)

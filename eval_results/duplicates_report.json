@@ -1,0 +1,101 @@
+{
+  "full_test": {
+    "accuracy": 0.951875,
+    "glioma_recall": 0.8225,
+    "ECE": 0.027701463049730278
+  },
+  "hash_thresholds": {
+    "0": {
+      "n_flagged": 372,
+      "n_clean": 1228,
+      "clean_accuracy": 0.9389250814332247,
+      "clean_macro_f1": 0.9314240883780608,
+      "clean_glioma_recall": 0.8223350253807107,
+      "clean_ECE": 0.038480475325357456,
+      "clean_class_counts": {
+        "glioma": 394,
+        "meningioma": 297,
+        "notumor": 142,
+        "pituitary": 395
+      },
+      "flagged_accuracy": 0.9946236559139785
+    },
+    "2": {
+      "n_flagged": 565,
+      "n_clean": 1035,
+      "clean_accuracy": 0.9294685990338164,
+      "clean_macro_f1": 0.8965530804202881,
+      "clean_glioma_recall": 0.8088642659279779,
+      "clean_ECE": 0.0445126900915553,
+      "clean_class_counts": {
+        "glioma": 361,
+        "meningioma": 275,
+        "notumor": 54,
+        "pituitary": 345
+      },
+      "flagged_accuracy": 0.9929203539823008
+    },
+    "4": {
+      "n_flagged": 852,
+      "n_clean": 748,
+      "clean_accuracy": 0.9064171122994652,
+      "clean_macro_f1": 0.8540382776449307,
+      "clean_glioma_recall": 0.7462121212121212,
+      "clean_ECE": 0.06154075703947938,
+      "clean_class_counts": {
+        "glioma": 264,
+        "meningioma": 208,
+        "notumor": 30,
+        "pituitary": 246
+      },
+      "flagged_accuracy": 0.9917840375586855
+    },
+    "6": {
+      "n_flagged": 1147,
+      "n_clean": 453,
+      "clean_accuracy": 0.8653421633554084,
+      "clean_macro_f1": 0.787437950496396,
+      "clean_glioma_recall": 0.6265822784810127,
+      "clean_ECE": 0.09508085487922097,
+      "clean_class_counts": {
+        "glioma": 158,
+        "meningioma": 130,
+        "notumor": 14,
+        "pituitary": 151
+      },
+      "flagged_accuracy": 0.986050566695728
+    },
+    "8": {
+      "n_flagged": 1357,
+      "n_clean": 243,
+      "clean_accuracy": 0.8024691358024691,
+      "clean_macro_f1": 0.6789284434085605,
+      "clean_glioma_recall": 0.4125,
+      "clean_ECE": 0.14669328645406787,
+      "clean_class_counts": {
+        "glioma": 80,
+        "meningioma": 62,
+        "notumor": 5,
+        "pituitary": 96
+      },
+      "flagged_accuracy": 0.9786293294030951
+    }
+  },
+  "confirmed": {
+    "rule": "hash distance <= 8 and pixel correlation >= 0.95",
+    "n_flagged": 582,
+    "n_clean": 1018,
+    "clean_accuracy": 0.9282907662082515,
+    "clean_macro_f1": 0.8919561852592036,
+    "clean_glioma_recall": 0.8114754098360656,
+    "clean_ECE": 0.04532620101281999,
+    "clean_class_counts": {
+      "glioma": 366,
+      "meningioma": 286,
+      "notumor": 48,
+      "pituitary": 318
+    },
+    "flagged_accuracy": 0.993127147766323,
+    "pairs_with_different_labels": 3
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "test": {
+    "n_images": 1600,
+    "accuracy": 0.951875,
+    "macro_f1": 0.9506443988176202,
+    "per_class": {
+      "glioma": {
+        "precision": 0.996969696969697,
+        "recall": 0.8225,
+        "f1-score": 0.9013698630136986,
+        "support": 400.0
+      },
+      "meningioma": {
+        "precision": 0.9143518518518519,
+        "recall": 0.9875,
+        "f1-score": 0.9495192307692307,
+        "support": 400.0
+      },
+      "notumor": {
+        "precision": 0.9237875288683602,
+        "recall": 1.0,
+        "f1-score": 0.9603841536614646,
+        "support": 400.0
+      },
+      "pituitary": {
+        "precision": 0.9851851851851852,
+        "recall": 0.9975,
+        "f1-score": 0.991304347826087,
+        "support": 400.0
+      },
+      "accuracy": 0.951875,
+      "macro avg": {
+        "precision": 0.9550735657187734,
+        "recall": 0.951875,
+        "f1-score": 0.9506443988176202,
+        "support": 1600.0
+      },
+      "weighted avg": {
+        "precision": 0.9550735657187737,
+        "recall": 0.951875,
+        "f1-score": 0.9506443988176201,
+        "support": 1600.0
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 1.8272365188853026,
+    "n_fit": 800,
+    "n_eval": 800,
+    "full_test_ECE_uncalibrated": 0.027701463049730278,
+    "before": {
+      "ECE": 0.022776585286533105,
+      "NLL": 0.19916575845830614,
+      "Brier": 0.06712528931497724,
+      "mean_confidence": 0.9786610165220994,
+      "accuracy": 0.96
+    },
+    "after": {
+      "ECE": 0.02883616298437605,
+      "NLL": 0.16953411210229852,
+      "Brier": 0.0669090807532028,
+      "mean_confidence": 0.9364639252904429,
+      "accuracy": 0.96
+    }
+  },
+  "leakage": {
+    "threshold_hamming": 4,
+    "n_test_near_duplicates_of_train": 852,
+    "fraction_near_duplicates": 0.5325,
+    "accuracy_on_duplicates": 0.9917840375586855,
+    "accuracy_on_clean_subset": 0.9064171122994652,
+    "macro_f1_on_clean_subset": 0.8540382776449307,
+    "n_clean": 748
+  }
+}
