@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Explainable Brain Tumor MRI Classification with Uncertainty-Aware Decision Support"
+authors:
+  - family-names: Noor
+    given-names: Hafza
+    affiliation: "Bahauddin Zakariya University, Multan"
+repository-code: "https://github.com/hafzanoor/MRI_Agent_Gradio"
+url: "https://hafzanoor-brain-tumor-classification-agent.hf.space"
+keywords:
+  - medical image analysis
+  - brain tumor MRI
+  - explainable AI
+  - model calibration
+  - data leakage
+date-released: 2026-11-06
